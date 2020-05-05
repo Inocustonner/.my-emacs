@@ -132,9 +132,30 @@ There are two things you can do about this warning:
 
 ;; no splash screen
 (setq inhibit-startup-message t)
-
 ;; Column number
 (setq column-number-mode t)
+;; MOVE LINE UP/DOWN===========================================
+(defun move-lines-down (arg)
+	(interactive "*P")
+	(let ((col (current-column)))
+		(unless arg
+			(setq arg 1))
+		(forward-line 1)
+		(transpose-lines arg)
+		(forward-line -1)
+		(move-to-column col)))
+
+(defun move-line-up ()
+	(interactive)
+	(let ((col (current-column)))
+		(transpose-lines 1)
+		(forward-line -2)
+		(move-to-column col)))
+
+(global-set-key (kbd "S-<down>") 'move-lines-down)
+(global-set-key (kbd "S-<up>") 'move-line-up)
+;; MOVE LINE UP/DOWN===========================================
+
 
 ;; custom indetation
 (setq-default tab-width 2)
