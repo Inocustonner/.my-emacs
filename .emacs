@@ -84,6 +84,7 @@ There are two things you can do about this warning:
 
 ;; SMOOTHSCROLLING=================================================================
 (require 'smooth-scrolling)
+(smooth-scrolling-mode t)
 (setq smooth-scroll-margin 2)
 ;; SMOOTHSCROLLING=================================================================
 
@@ -134,6 +135,7 @@ There are two things you can do about this warning:
 (setq inhibit-startup-message t)
 ;; Column number
 (setq column-number-mode t)
+
 ;; MOVE LINE UP/DOWN===========================================
 (defun move-lines-down (arg)
 	(interactive "*P")
